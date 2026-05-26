@@ -1,0 +1,27 @@
+{
+  "DefaultServer": "LocalServer",
+  "Servers": {
+    "LocalServer": {
+      "ServerName": ".",
+      "Alias": "LocalServer",
+      "UseWindowsAuth": true,
+      "Username": "",
+      "Password": "",
+      "SavePassword": false,
+      "ConnectionTimeout": 26,
+      "CommandTimeout": 300,
+      "AutoCreateStoredProcedures": true
+    },
+    "Hosein": {
+      "ServerName": "DESKTOP-SPEJ0H9",
+      "Alias": "Hosein",
+      "UseWindowsAuth": false,
+      "Username": "Hosein",
+      "Password": "",
+      "SavePassword": false,
+      "ConnectionTimeout": 26,
+      "CommandTimeout": 200,
+      "AutoCreateStoredProcedures": true
+    }
+  }
+}
