@@ -93,62 +93,65 @@ namespace DatabaseManagement.Utility
             {
                 object? rawValue = null;
 
-                switch (control)
+                if (control.Visible && control.Enabled)
                 {
-                    case TextBox textBox:
-                        rawValue = textBox.Text;
-                        break;
-
-                    case ComboBox comboBox:
-                        if (comboBox.SelectedItem is string comboBoxText && comboBoxText == Utility.Constants.COMBOBOX__EMPTY_VALUE_KEY)
-                        {
-                            rawValue = null;
+                    switch (control)
+                    {
+                        case TextBox textBox:
+                            rawValue = textBox.Text;
                             break;
-                        }
-                        rawValue = comboBox.SelectedItem?.ToString();
-                        break;
 
-                    case NumericUpDown numericUpDown:
-                        rawValue = numericUpDown.Value;
-                        break;
-
-                    case CheckBox checkBox:
-                        switch (checkBox.CheckState)
-                        {
-                            case CheckState.Unchecked:
-                                rawValue = false;
-                                break;
-                            case CheckState.Checked:
-                                rawValue = true;
-                                break;
-                            case CheckState.Indeterminate:
+                        case ComboBox comboBox:
+                            if (comboBox.SelectedItem is string comboBoxText && comboBoxText == Utility.Constants.COMBOBOX__EMPTY_VALUE_KEY)
+                            {
                                 rawValue = null;
                                 break;
-                        }
-                        break;
+                            }
+                            rawValue = comboBox.SelectedItem?.ToString();
+                            break;
 
-                    case RadioButton radioButton:
-                        rawValue = radioButton.Checked;
-                        break;
+                        case NumericUpDown numericUpDown:
+                            rawValue = numericUpDown.Value;
+                            break;
 
-                    case DateTimePicker dateTimePicker:
-                        rawValue = dateTimePicker.Value;
-                        break;
+                        case CheckBox checkBox:
+                            switch (checkBox.CheckState)
+                            {
+                                case CheckState.Unchecked:
+                                    rawValue = false;
+                                    break;
+                                case CheckState.Checked:
+                                    rawValue = true;
+                                    break;
+                                case CheckState.Indeterminate:
+                                    rawValue = null;
+                                    break;
+                            }
+                            break;
 
-                    case ListBox listBox:
-                        rawValue = listBox.SelectedItem?.ToString();
-                        break;
+                        case RadioButton radioButton:
+                            rawValue = radioButton.Checked;
+                            break;
 
-                    case RichTextBox richTextBox:
-                        rawValue = richTextBox.Text;
-                        break;
+                        case DateTimePicker dateTimePicker:
+                            rawValue = dateTimePicker.Value;
+                            break;
 
-                    case MaskedTextBox maskedTextBox:
-                        rawValue = maskedTextBox.Text;
-                        break;
+                        case ListBox listBox:
+                            rawValue = listBox.SelectedItem?.ToString();
+                            break;
 
-                    default:
-                        return false;
+                        case RichTextBox richTextBox:
+                            rawValue = richTextBox.Text;
+                            break;
+
+                        case MaskedTextBox maskedTextBox:
+                            rawValue = maskedTextBox.Text;
+                            break;
+
+                        default:
+                            return false;
+                    }
                 }
 
                 // Validation for string types

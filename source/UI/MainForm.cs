@@ -860,10 +860,8 @@ namespace DatabaseManagement.UI
             else
             {
                 numIdentityIncrement.Visible = false;
-                numIdentityIncrement.Value = 0;
                 lblIdentityIncrement.Visible = false;
                 numIdentitySeed.Visible = false;
-                numIdentitySeed.Value = 0;
                 lblIdentitySeed.Visible = false;
             }
         }
