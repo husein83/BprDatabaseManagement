@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             panelHeader = new Panel();
             btnShowInformation = new Button();
             btnSetting = new Button();
@@ -1788,6 +1789,7 @@
             Controls.Add(tabControl);
             Controls.Add(panelHeader);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;

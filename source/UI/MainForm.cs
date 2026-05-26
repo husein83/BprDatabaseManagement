@@ -3077,8 +3077,23 @@ namespace DatabaseManagement.UI
             if (checkBox != null)
             {
                 checkBox.Visible = isVisible;
-                checkBox.Checked = isChecked;
                 checkBox.ThreeState = isThreeState;
+
+                if (isChecked)
+                {
+                    checkBox.CheckState = CheckState.Checked;
+                }
+                else
+                {
+                    if (isThreeState)
+                    {
+                        checkBox.CheckState = CheckState.Indeterminate;
+                    }
+                    else
+                    {
+                        checkBox.CheckState = CheckState.Unchecked;
+                    }
+                }
             }
         }
         private void ReloadFrom()

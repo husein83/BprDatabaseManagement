@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataTableViewer));
             dataGridView = new DataGridView();
             lblInitial = new Label();
             txtInitial = new TextBox();
@@ -86,6 +87,7 @@
             Controls.Add(dataGridView);
             Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "DataTableViewer";
             StartPosition = FormStartPosition.CenterParent;

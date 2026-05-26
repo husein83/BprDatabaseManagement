@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingForm));
             gbxServerList = new GroupBox();
             btnSetDefault = new Button();
             btnRemoveServer = new Button();
@@ -374,6 +375,7 @@
             Controls.Add(gbxServerList);
             Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "SettingForm";
             StartPosition = FormStartPosition.CenterScreen;
