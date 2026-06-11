@@ -2089,7 +2089,7 @@ namespace DatabaseManagement.UI
         private void ExecuteAlterDatabase()
         {
             var config = new DatabaseProcedure.Alter();
-            if (txtDbName.TryGetRequiredValue<string>(out string dbName, "Database name"))
+            if (cmbDatabases.TryGetRequiredValue<string>(out string dbName, "Database name"))
             {
                 config.DatabaseName = dbName;
             }
@@ -2121,7 +2121,7 @@ namespace DatabaseManagement.UI
         private void ExecuteDropDatabase()
         {
             var config = new DatabaseProcedure.Drop();
-            if (txtDbName.TryGetRequiredValue<string>(out string dbName, "Database name"))
+            if (cmbDatabases.TryGetRequiredValue<string>(out string dbName, "Database name"))
             {
                 config.DatabaseName = dbName;
             }
