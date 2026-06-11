@@ -996,13 +996,13 @@ namespace DatabaseManagement.UI
             }
             else if (cmbDatabases5.Visible)
             {
-                if (cmbSchemas4.Visible && sender == cmbSchemas4)
+                if (cmbSchemas4.Visible)
                 {
                     dbName = cmbDatabases5.SelectedItem?.ToString();
                     schemaName = cmbSchemas4.SelectedItem?.ToString();
                     tableLookup = cmbTables4;
                 }
-                if (cmbSchemas5.Visible && sender == cmbSchemas5)
+                if (cmbSchemas5.Visible)
                 {
                     dbName = cmbDatabases5.SelectedItem?.ToString();
                     schemaName2 = cmbSchemas5.SelectedItem?.ToString();
@@ -1013,10 +1013,10 @@ namespace DatabaseManagement.UI
             if (string.IsNullOrWhiteSpace(dbName) == false)
             {
                 if (string.IsNullOrWhiteSpace(schemaName) == false)
-                    LoadTables(dbName, schemaName, tableLookup, tableLookup2);
+                    LoadTables(dbName, schemaName, tableLookup);
 
                 if (string.IsNullOrWhiteSpace(schemaName2) == false)
-                    LoadTables(dbName, schemaName2, tableLookup, tableLookup2);
+                    LoadTables(dbName, schemaName2, tableLookup2);
             }
         }
         private void cmbTables_SelectedIndexChanged(object sender, EventArgs e)
@@ -1532,12 +1532,12 @@ namespace DatabaseManagement.UI
                 SetTextBoxInitialBusiness(txtIndexName, true);
                 SetTextBoxInitialBusiness(txtFilterPredicate, true);
 
-                SetNumericUpDownInitialBusiness(numFillFactor, true);
+                SetNumericUpDownInitialBusiness(numFillFactor, true, 100);
 
                 SetCheckBoxInitialBusiness(cbxIsUnique, true, false, false);
                 SetCheckBoxInitialBusiness(cbxDropExisting, false, false, false);
-                SetCheckBoxInitialBusiness(cbxAllowPageLocks, true, false, false);
-                SetCheckBoxInitialBusiness(cbxAllowRowLocks, true, false, false);
+                SetCheckBoxInitialBusiness(cbxAllowPageLocks, true, false, true);
+                SetCheckBoxInitialBusiness(cbxAllowRowLocks, true, false, true);
                 SetCheckBoxInitialBusiness(cbxPadIndex, true, false, false);
                 SetCheckBoxInitialBusiness(cbxIgnoreIfNotExists, false, false, false);
 
