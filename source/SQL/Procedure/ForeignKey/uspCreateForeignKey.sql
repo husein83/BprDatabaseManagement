@@ -22,9 +22,10 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    DECLARE @SQL      NVARCHAR(MAX);
-    DECLARE @FKName   NVARCHAR(300);
-    DECLARE @FKExists BIT = 0;
+    DECLARE @SQL            NVARCHAR(MAX);
+    DECLARE @FKName         NVARCHAR(300);
+    DECLARE @FullTableName  NVARCHAR(400);
+    DECLARE @FKExists       BIT = 0;
 
     -- ═══════════════════════════════════════════════════════════════════
     -- VALIDATE
@@ -91,11 +92,12 @@ BEGIN
 
     -- Check FK already exists
     SET @FKExists = 0;
+    SET @FullTableName = QUOTENAME(@DatabaseName) + N'.' + QUOTENAME(@SchemaName) + N'.' + QUOTENAME(@TableName);
     SET @SQL = N'SELECT @E = 1 FROM ' + QUOTENAME(@DatabaseName) + N'.sys.foreign_keys
                  WHERE name = @FKName
                    AND parent_object_id = OBJECT_ID(@FullTableName)';
     EXEC sp_executesql @SQL, N'@FKName NVARCHAR(300), @FullTableName NVARCHAR(400), @E BIT OUTPUT',
-                       @FKName, @DatabaseName + N'.' + @SchemaName + N'.' + @TableName, @FKExists OUTPUT;
+                       @FKName, @FullTableName, @FKExists OUTPUT;
 
     IF @FKExists = 1
     BEGIN
