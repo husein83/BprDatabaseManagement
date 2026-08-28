@@ -2212,12 +2212,12 @@ namespace DatabaseManagement.UI
                 config.DatabaseName = dbName;
             }
             else return;
-            if (txtSchemaName.TryGetRequiredValue<string>(out string schemaName, "Schema name"))
+            if (cmbSchemas.TryGetRequiredValue<string>(out string schemaName, "Schema name"))
             {
                 config.SchemaName = schemaName;
             }
             else return;
-            if (txtTableName.TryGetRequiredValue<string>(out string tableName, "Table name"))
+            if (cmbTables.TryGetRequiredValue<string>(out string tableName, "Table name"))
             {
                 config.TableName = tableName;
             }
@@ -2254,12 +2254,12 @@ namespace DatabaseManagement.UI
                 config.DatabaseName = dbName;
             }
             else return;
-            if (txtSchemaName.TryGetRequiredValue<string>(out string schemaName, "Schema name"))
+            if (cmbSchemas.TryGetRequiredValue<string>(out string schemaName, "Schema name"))
             {
                 config.SchemaName = schemaName;
             }
             else return;
-            if (txtTableName.TryGetRequiredValue<string>(out string tableName, "Table name"))
+            if (cmbTables.TryGetRequiredValue<string>(out string tableName, "Table name"))
             {
                 config.TableName = tableName;
             }
